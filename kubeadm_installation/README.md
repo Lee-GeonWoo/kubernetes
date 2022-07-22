@@ -28,8 +28,8 @@ $ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outf
 
 Bash Completion at Master Node
 ```
-$ chmod +x kubernetes_bash_completion.sh
-$ source kubernetes_bash_completion.sh
+$ chmod +x kubernetes_bash-completion.sh
+$ source kubernetes_bash-completion.sh
 ```
 
 Only Worker Node

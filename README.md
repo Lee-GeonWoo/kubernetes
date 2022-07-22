@@ -1,4 +1,4 @@
-# Install Kubernetes using kubeadm
+# Install kubernetes with kubeadm
 
 Every Nodes
 ```

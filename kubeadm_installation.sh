@@ -2,7 +2,7 @@
 
 HOSTNAME=$(hostname)
 
-sed -i "1s/localhost/"${HOSTNAME}"/g" /etc/hosts
+sed -i "1s/localhost/${HOSTNAME}/g" /etc/hosts
 
 swapoff -a
 
@@ -10,18 +10,16 @@ ufw disable
 
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
-### Translate sources
+### Modify sources
 sed -i 's/kr.archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 sed -i 's/security.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 
+
+### Install packages
 sudo apt update -y
-
 sudo apt-get update -y
-
 sudo apt-get remove docker docker-engine docker.io -y
-
 sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
-
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
@@ -51,7 +49,6 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 
 sudo apt-get update -y
-
 sudo apt-get upgrade -y
 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -63,14 +60,13 @@ EOF
 sudo apt-get update -y
 
 sudo apt-get install -y kubelet kubeadm kubectl -y
-
 sudo apt-mark hold kubelet kubeadm kubectl
 
 kubeadm version
 kubelet --version
 
-echo -e "####################### kubeadm installation finished ! #######################\n####################### Set your Master Node & Worker Node #######################"
-echo -e " "
+echo -e "######################## kubeadm installation finished ! ########################"
+echo -e "####################### Set your Master Node & Worker Node #######################"
 echo -e " "
 echo -e "======================== MASTER NODE ========================"
 echo -e "sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address={__REPLACE_WITH_PRIVATE_IP__MASTER}"
@@ -81,7 +77,6 @@ echo -e "kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/maste
 echo -e "kubeadm token list"
 echo -e "openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'"
 
-echo -e " "
 echo -e " "
 echo -e "======================== WORKER NODE ========================"
 echo -e "sudo kubeadm join {__REPLACE_WITH_PRIVATE_IP__MASTER}:6443 --token {TOKEN_NUM} --discovery-token-ca-cert-hash sha256:{HASH_NUM}"

@@ -36,7 +36,7 @@ $ chmod +x util.sh
 $ source util.sh
 ```
 
-or  
+### or  
 
 One master node and two worker nodes  
 ```

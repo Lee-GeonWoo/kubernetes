@@ -37,6 +37,7 @@ $ source util.sh
 ```
 
 ### or  
+<br></br>
 
 One master node and two worker nodes  
 ```

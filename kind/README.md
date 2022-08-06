@@ -1,5 +1,4 @@
 # KinD (Kubernetes in Docker)
-<hr></hr>
 
 kind is a tool for running local Kubernetes clusters using Docker container “nodes”. kind was primarily designed for testing Kubernetes itself, but may be used for local development or CI. **(DOCS)**
 
@@ -63,3 +62,21 @@ $ do
 $ kind create cluster --name cluster${i} --config kind-config.yaml
 $ done
 ````
+
+### Checking
+* Cluster(s)
+```
+$ kind get clusters
+cluster1
+cluster2
+cluster3
+```
+
+* Node(s)
+```
+$ kubectl get nodes -o wide
+NAME                     STATUS   ROLES                  AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE       KERNEL-VERSION       CONTAINER-RUNTIME
+cluster1-control-plane   Ready    control-plane,master   2m51s   v1.20.2   172.18.0.8    <none>        Ubuntu 20.10   4.15.0-124-generic   containerd://1.4.0-106-gce4439a8
+cluster1-worker          Ready    <none>                 2m13s   v1.20.2   172.18.0.9    <none>        Ubuntu 20.10   4.15.0-124-generic   containerd://1.4.0-106-gce4439a8
+cluster1-worker2         Ready    <none>                 2m14s   v1.20.2   172.18.0.10   <none>        Ubuntu 20.10   4.15.0-124-generic   containerd://1.4.0-106-gce4439a8
+```

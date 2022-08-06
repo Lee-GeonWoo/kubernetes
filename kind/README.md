@@ -38,6 +38,7 @@ $ source util.sh
 
 or  
 
+One master node and two worker nodes  
 ```
 $ cat<<EOF > kind-config.yaml
 kind: Cluster

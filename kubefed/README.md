@@ -1,3 +1,9 @@
+# Before Installation
+Set number of clusters
+```
+$ export NUM_CLUSTERS=3
+```
+
 # After Installation
  ex) cluster1(host), cluster2(member)
 

@@ -1,7 +1,7 @@
 # Before Installation
 Set number of clusters
 ```
-$ export NUM_CLUSTERS=3
+$ export NUM_CLUSTERS=2
 ```
 
 # After Installation

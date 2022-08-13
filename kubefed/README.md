@@ -12,16 +12,16 @@ $ chmod +x kubefed_installation.sh
 $ source kubefed_installation.sh
 ```
 
-#### Example 1
-Federated Bookinfo Service
-##### ※ Namespace : default
+### Example 1
+Federated Bookinfo Service  
+<b> ※ Namespace : default </b>
 ```
 kubectl apply -f federated-bookinfo.yaml
 ```
 
-#### Example 2
-Federated Voting-app Service
-##### ※ Namespace : demo
+### Example 2
+Federated Voting-app Service  
+<b> ※ Namespace : demo </b>
 ```
 kubectl apply -f federated-voting-app.yaml
 ```

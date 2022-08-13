@@ -14,12 +14,14 @@ $ source kubefed_installation.sh
 
 #### Example 1
 Federated Bookinfo Service
+##### ※ Namespace : default
 ```
 kubectl apply -f federated-bookinfo.yaml
 ```
 
 #### Example 2
 Federated Voting-app Service
+##### ※ Namespace : demo
 ```
 kubectl apply -f federated-voting-app.yaml
 ```

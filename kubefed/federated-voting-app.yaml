@@ -334,3 +334,8 @@ spec:
           containers: 
           - image: dockersamples/examplevotingapp_worker
             name: worker
+  placement:
+    clusters:
+    - name: cluster1
+    - name: cluster2
+    - name: cluster3

@@ -65,6 +65,9 @@ sudo apt-mark hold kubelet kubeadm kubectl
 kubeadm version
 kubelet --version
 
+sudo rm /etc/containerd/config.toml
+sudo systemctl restart containerd
+
 echo -e "######################## kubeadm installation finished ! ########################"
 echo -e "####################### Set your Master Node & Worker Node #######################"
 echo -e " "
